@@ -5,13 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Diagnostics;
+using System.Configuration;
 
 namespace WinFormsCRUD
 {
     public class PeopleDB
     {
-        private static string connectionString = @"Data Source=DESKTOP-1U9MT7U\OVEDFS; Initial Catalog=People;Trusted_Connection=True;";
+        //private static string connectionString = @"Data Source=DESKTOP-1U9MT7U\OVEDFS; Initial Catalog=People;Trusted_Connection=True;";
         //private static string connectionString = @"Data Source=.; Initial Catalog=People;Trusted_Connection=True;";
+        private static readonly string connectionString = ConfigurationManager.ConnectionStrings["MainConnection"].ToString();
 
         public static bool Test()
         {
