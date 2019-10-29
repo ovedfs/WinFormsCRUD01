@@ -34,6 +34,7 @@
             this.BtnDelete = new System.Windows.Forms.Button();
             this.BtnEdit = new System.Windows.Forms.Button();
             this.BtnAdd = new System.Windows.Forms.Button();
+            this.BtnClean = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -41,7 +42,7 @@
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(16, 108);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
@@ -51,17 +52,18 @@
             // 
             // BtnFilter
             // 
-            this.BtnFilter.Location = new System.Drawing.Point(935, 62);
+            this.BtnFilter.Location = new System.Drawing.Point(854, 62);
             this.BtnFilter.Margin = new System.Windows.Forms.Padding(4);
             this.BtnFilter.Name = "BtnFilter";
             this.BtnFilter.Size = new System.Drawing.Size(116, 28);
             this.BtnFilter.TabIndex = 4;
             this.BtnFilter.Text = "Filtrar";
             this.BtnFilter.UseVisualStyleBackColor = true;
+            this.BtnFilter.Click += new System.EventHandler(this.BtnFilter_Click);
             // 
             // txtData
             // 
-            this.txtData.Location = new System.Drawing.Point(780, 65);
+            this.txtData.Location = new System.Drawing.Point(699, 65);
             this.txtData.Name = "txtData";
             this.txtData.Size = new System.Drawing.Size(148, 22);
             this.txtData.TabIndex = 5;
@@ -120,11 +122,23 @@
             this.BtnAdd.UseVisualStyleBackColor = false;
             this.BtnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
+            // BtnClean
+            // 
+            this.BtnClean.Location = new System.Drawing.Point(978, 62);
+            this.BtnClean.Margin = new System.Windows.Forms.Padding(4);
+            this.BtnClean.Name = "BtnClean";
+            this.BtnClean.Size = new System.Drawing.Size(73, 28);
+            this.BtnClean.TabIndex = 6;
+            this.BtnClean.Text = "Limpiar";
+            this.BtnClean.UseVisualStyleBackColor = true;
+            this.BtnClean.Click += new System.EventHandler(this.BtnClean_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.BtnClean);
             this.Controls.Add(this.txtData);
             this.Controls.Add(this.BtnFilter);
             this.Controls.Add(this.BtnDelete);
@@ -132,7 +146,7 @@
             this.Controls.Add(this.BtnAdd);
             this.Controls.Add(this.dataGridView1);
             this.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CRUD";
@@ -151,6 +165,7 @@
         private System.Windows.Forms.Button BtnDelete;
         private System.Windows.Forms.Button BtnFilter;
         private System.Windows.Forms.TextBox txtData;
+        private System.Windows.Forms.Button BtnClean;
     }
 }
 

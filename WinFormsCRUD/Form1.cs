@@ -80,5 +80,19 @@ namespace WinFormsCRUD
                 }
             }
         }
+
+        private void BtnFilter_Click(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(txtData.Text))
+            {
+                dataGridView1.DataSource = PeopleDB.Filter(txtData.Text);
+            }
+        }
+
+        private void BtnClean_Click(object sender, EventArgs e)
+        {
+            txtData.Text = String.Empty;
+            RefreshGrid();
+        }
     }
 }

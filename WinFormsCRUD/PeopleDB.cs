@@ -103,6 +103,45 @@ namespace WinFormsCRUD
             }
         }
 
+        public static List<Person> Filter(string q)
+        {
+            List<Person> people = new List<Person>();
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                using (SqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "SELECT id, name, age FROM people WHERE name LIKE @q OR age LIKE @q";
+                    command.Parameters.Add(new SqlParameter("@q", "%" + q + "%"));
+
+                    try
+                    {
+                        SqlDataReader reader = command.ExecuteReader();
+
+                        while (reader.Read())
+                        {
+                            Person person = new Person()
+                            {
+                                Id = (int)reader["id"],
+                                Name = (string)reader["name"],
+                                Age = (int)reader["age"]
+                            };
+
+                            people.Add(person);
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        throw new Exception($"Hubo un error: {e.Message}");
+                    }
+                }
+            }
+
+            return people;
+        }
+
         public static int Insert(Person person)
         {
             int inserted = -1;
